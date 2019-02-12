@@ -1,0 +1,45 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+//ustawienie prezycji pierwiastka
+
+
+double pierwiastek(double P, double eps)
+{
+	   double a = 1., b = P;
+
+       //dopóki nie otrzymamy żądanej precyzji
+       while(fabs(a-b)>=eps)
+       {
+           a = (a+b)/2.;
+           b = P/a;
+       }
+
+       return a;
+}
+
+int main()
+{
+    int ile=0;
+    cout<<"Ile chcesz spierwiastkowac liczb?"<<endl;
+    cin>>ile;
+    double eps;
+    cout<<"Jaka ma byc dokladnosc?"<<endl;
+    cin>>eps;
+
+    for(int i=0;i<ile;i++)
+    {
+        double x;
+        cout<<"Podaj liczbe, z ktorej chcesz wyznaczyc pierwiastek: ";
+        cin>>x;
+
+        cout<<fixed<<pierwiastek(x, eps)<<endl;
+
+    }
+
+        cin.ignore();
+        cin.get();
+
+    return 0;
+}
